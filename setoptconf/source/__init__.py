@@ -12,8 +12,13 @@ from .modobj import *
 
 try:
     import yaml
-except ImportError:  # pragma: no cover
+except ModuleNotFoundError:  # pragma: no cover
     pass
 else:
     del yaml
     from .yamlfile import *
+
+try:
+    from .tomlfile import *
+except ModuleNotFoundError:  # pragma: no cover
+    pass

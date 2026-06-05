@@ -258,3 +258,27 @@ happy:
         else:
             assert False, 'Expected TypeError for non-objects'
 
+if hasattr(soc, 'TomlFileSource'):
+    def test_tomlfile():
+        file1 = make_temp('')
+
+        source = soc.TomlFileSource(file1, section='tool.mytest')
+        config = source.get_config(make_settings())
+
+        assert config.foo is None
+        assert config.bar is None
+        assert config.baz is False
+        assert config.happy is None
+
+        file2 = make_temp("""[tool.mytest]
+foo = "hello"
+bar = 123
+""")
+
+        source = soc.TomlFileSource(file2, section='tool.mytest')
+        config = source.get_config(make_settings())
+
+        assert config.foo == 'hello'
+        assert config.bar == 123
+        assert config.baz is False
+        assert config.happy is None

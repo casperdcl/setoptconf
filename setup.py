@@ -1,9 +1,7 @@
 import os.path
 import re
-import sys
 
-from setuptools import setup, find_packages
-
+from setuptools import find_packages, setup
 
 DEPENDENCIES = []
 
@@ -47,6 +45,7 @@ setup(
     install_requires=DEPENDENCIES,
     extras_require={
         'YAML': ['pyyaml'],
+        'TOML': ['toml'],
     },
     python_requires=">=3.0",
 )

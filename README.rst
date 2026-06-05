@@ -13,6 +13,7 @@ from a variety of common sources:
 * INI Files
 * JSON Files
 * YAML Files
+* TOML Files
 * Python Objects/Modules
 
 The goal of this project is to define your desired settings in a simple and
@@ -54,4 +55,3 @@ overriding with the priority implied by the order of the sources we pass::
 
 We now have a Configuration object named ``config`` that has three attributes;
 ``foo``, ``bar``, and ``baz``.
-
